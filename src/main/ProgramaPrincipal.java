@@ -50,10 +50,10 @@ public class ProgramaPrincipal {
 						switch(opcionEscogida) {
 							case 1:
 								//Se realiza el mantenimiento exclusivamente de la tabla T_BLOQUEOS
-								mantenimientoDeDatos(conexion, nombreTabla, new MantenimientoDatos(conexion));
+								mantenimientoDeDatos(nombreTabla, new MantenimientoDatos(conexion));
 								break;
 							case 2:
-								realizarLecturaNoRepetida(conexion, nombreDeUsuario, contrasennaDeUsuario, nombreTabla);
+								realizarLecturaNoRepetida(nombreDeUsuario, contrasennaDeUsuario, nombreTabla);
 								break;
 							case 3:
 								salir = true;
@@ -111,12 +111,11 @@ public class ProgramaPrincipal {
 	/**
 	 * Realiza el mantenimiento de los datos de la tabla especificada.
 	 * 
-	 * @param conexion Conexión a la base de datos.
 	 * @param nombreTabla Nombre de la tabla a mantener.
 	 * @param mantenimiento Objeto de la clase MantenimientoDatos para acceder a los métodos correspondientes.
 	 * @throws SQLException Si ocurre un error al acceder a la base de datos.
 	 */
-	private static void mantenimientoDeDatos(Connection conexion, String nombreTabla, MantenimientoDatos mantenimiento) throws SQLException {
+	private static void mantenimientoDeDatos(String nombreTabla, MantenimientoDatos mantenimiento) throws SQLException {
 		boolean volver = false;
 				
 		while(!volver) {
@@ -158,13 +157,12 @@ public class ProgramaPrincipal {
 	 * con la segunda conexión y se confirma la transacción (commit). Posteriormente, se vuelve a consultar
 	 * el mismo registro con ambas conexiones para observar el comportamiento de lectura.
 	 * 
-	 * @param conn                 Conexión a la base de datos.
 	 * @param nombreDeUsuario      Nombre del usuario de la base de datos.
 	 * @param contrasennaDeUsuario Contraseña del usuario de la base de datos.
 	 * @param nombreTabla          Nombre de la tabla sobre la que se realiza la operación.
 	 * @throws SQLException Si ocurre un error durante la ejecución de operaciones SQL.
 	 */
-	private static void realizarLecturaNoRepetida(Connection conn, String nombreDeUsuario, String contrasennaDeUsuario, String nombreTabla) throws SQLException {
+	private static void realizarLecturaNoRepetida(String nombreDeUsuario, String contrasennaDeUsuario, String nombreTabla) throws SQLException {
 		Connection conexion_1 = DriverManager.getConnection("jdbc:oracle:thin:"+nombreDeUsuario+"/"+contrasennaDeUsuario+"@//localhost:1521/XE");
 		Connection conexion_2 = DriverManager.getConnection("jdbc:oracle:thin:"+nombreDeUsuario+"/"+contrasennaDeUsuario+"@//localhost:1521/XE");
 
@@ -230,7 +228,6 @@ public class ProgramaPrincipal {
 	 * 
 	 * @throws InputMismatchException Si el token recuperado no coincide con el patrón del tipo 
 	 * 		   esperado (int).
-	 * @throws InputMismatchException Si la entrada no es un número entero.
 	 */
 	private static int escogerOpcion(String mensajeParaSolicitarDato, int minValor, int maxValor) throws InputMismatchException {
 		int opcionEscogida = 0;

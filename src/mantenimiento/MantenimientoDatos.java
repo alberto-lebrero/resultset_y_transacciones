@@ -73,7 +73,7 @@ public class MantenimientoDatos {
 	public void visualizarLosDatosDeUnaFila(String nombreTabla) throws SQLException {
 		System.out.println("\nVisualizar los datos de una fila de la tabla " + nombreTabla.toUpperCase());
 		
-		Statement sentenciaDesplazableActualizable = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		Statement sentenciaDesplazableActualizable = conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		ResultSet tablaTemporal = sentenciaDesplazableActualizable.executeQuery("SELECT CODIGO, NOMBRE FROM " + nombreTabla.toUpperCase());
 		
 		
@@ -113,7 +113,7 @@ public class MantenimientoDatos {
      * @throws SQLException Si ocurre un error al ejecutar la consulta SQL o al acceder a los datos de la tabla.
      */
 	public void mostrarDatos(String nombreTabla) throws SQLException {
-		Statement sentenciaDesplazableActualizable = conexion.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		Statement sentenciaDesplazableActualizable = conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		ResultSet tablaTemporal = sentenciaDesplazableActualizable.executeQuery("SELECT CODIGO, NOMBRE FROM " + nombreTabla.toUpperCase() + " ORDER BY CODIGO ASC");
 		
 		
