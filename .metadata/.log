@@ -1,0 +1,13 @@
+!SESSION 2025-01-30 19:58:57.521 -----------------------------------------------
+eclipse.buildId=4.33.0.20240905-0613
+java.version=22
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data C:\DAM_LABS\SegundoDAM\AccesoADatos\LAB\P5_MantenimientoTablas_ResultSetYTransacciones
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-30 19:59:02.653
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-01-30 19:59:05.502
+!MESSAGE Logback config file: C:\DAM_LABS\SegundoDAM\AccesoADatos\LAB\P5_MantenimientoTablas_ResultSetYTransacciones\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
